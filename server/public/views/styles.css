@@ -1,3 +1,7 @@
 body{
     background-color: lightblue;
 }
+
+th{
+    text-decoration: underline;
+}
