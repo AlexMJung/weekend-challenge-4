@@ -6,7 +6,7 @@
         <script src="scripts/client.js"></script>
         <link rel="stylesheet" href="views/styles.css">
     </head>
-    <body>
+    <body ng-app='EmployeeApp' ng-controller="EmployeeController as vm">
         <h1>Employees and cost</h1>
         <div id='newEmployeeForm'>
             <form>
@@ -31,8 +31,11 @@
                 <th>Active</th>
             </thead>
             <tbody>
-                <tr>
-
+                <tr ng-repeat="emp as vm.employees">
+                    <td>{{vm.first_name}}</td>
+                    <td>{{vm.last_name}}</td>
+                    <td>{{vm.job_title}}</td>
+                    <td>{{vm.salary}}</td>
                 </tr>
             </tbody>
         </table>

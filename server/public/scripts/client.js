@@ -9,7 +9,16 @@ var self = this;
 
 var employees = [];
 
+self.getEmployees= function(){
+    $http({
+        method:'get',
+        url: '/employees'
+    }).then(function(response){
+        self.employees= response.data
 
+    })//end of then
+}//end of self.getEmployees
 
+self.getEmployees();
 
 }]); //end of app. controller 
