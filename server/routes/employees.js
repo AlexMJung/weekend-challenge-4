@@ -1,27 +1,29 @@
-var express = require ('express');
+var express = require('express');
 var router = express.Router();
-var pool = require('/modules/pool');
+var pool = require('../modules/pool');
 
-router.get('/', function(req, res) {
-	// Add a SELECT query
-	pool.connect(function(errorConnectingToDatabase, client, done){
-		if(errorConnectingToDatabase) {
-			// when connecting to database failed
+
+router.get('/', function (req, res) {
+	console.log('router.get was hit');
+	pool.connect(function (errorConnectingToDatabase, client, done) {
+		if (errorConnectingToDatabase) {
 			console.log('Error connecting to database', errorConnectingToDatabase);
 			res.sendStatus(500);
 		} else {
-			// when connecting to database worked!
-			client.query('SELECT first_name, last_name, job_title, salary from employees;', function(errorMakingQuery, result) {
+			client.query('SELECT * FROM employees;', function (errorMakingQuery, result) {
 				done();
-				if(errorMakingQuery) {
+				if (errorMakingQuery) {
 					console.log('Error making database query', errorMakingQuery);
 					res.sendStatus(500);
 				} else {
+					console.log('results sent');
 					res.send(result.rows);
+					
+					
 				}
 			});
 		}
 	});
 });
 
-module.exports= router
+module.exports = router;
