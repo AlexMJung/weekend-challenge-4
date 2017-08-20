@@ -13,14 +13,14 @@
     <div id='newEmployeeForm'>
         <form>
             <label>First Name</label>
-            <input type="text" placeholder="First Name"></input>
+            <input type="text" placeholder="First Name" ng-model="vm.newEmployee.first_name"></input>
             <label>Last Name</label>
-            <input type="text" placeholder="Last Name"></input>
+            <input type="text" placeholder="Last Name" ng-model="vm.newEmployee.last_name"></input>
             <label>Job Title</label>
-            <input type="text" placeholder="Job Title"></input>
+            <input type="text" placeholder="Job Title" ng-model="vm.newEmployee.job_title"></input>
             <label>Annual Salary</label>
-            <input type="number" placeholder="Annual Salary"></input>
-            <button id="submit">Submit</button>
+            <input type="number" placeholder="Annual Salary" ng-model="vm.newEmployee.salary"></input>
+            <button id="submit" ng-click="vm.postNewEmployee()">Submit</button>
         </form>
     </div>
     <h3> Employee List</h3>
