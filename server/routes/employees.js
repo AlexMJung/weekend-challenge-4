@@ -1,6 +1,6 @@
 var express = require ('express');
 var router = express.Router();
-var pool = require('../modules/pool');
+var pool = require('/modules/pool');
 
 router.get('/', function(req, res) {
 	// Add a SELECT query
@@ -24,4 +24,4 @@ router.get('/', function(req, res) {
 	});
 });
 
-module.exports= router;
+module.exports= router

@@ -11,13 +11,12 @@ var employees = [];
 
 self.getEmployees= function(){
     $http({
-        method:'get',
+        method:'GET',
         url: '/employees'
     }).then(function(response){
         self.employees= response.data
-
-    })//end of then
-}//end of self.getEmployees
+    });//end of then
+};//end of self.getEmployees
 
 self.getEmployees();
 
