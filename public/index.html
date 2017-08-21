@@ -5,13 +5,14 @@
     <title>Weekend Challenge 4</title>
     <script src="vendors/angular.min.js"></script>
     <script src="client.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="views/styles.css">
 </head>
 
 <body ng-app="EmployeeApp" ng-controller="EmployeeController as vm">
     <h1>Employees and cost</h1>
     <div id='newEmployeeForm'>
-        <form>
+        <form ng-submit="vm.postNewEmployee()">
             <label>First Name</label>
             <input type="text" placeholder="First Name" ng-model="vm.newEmployee.first_name"></input>
             <label>Last Name</label>
@@ -20,17 +21,18 @@
             <input type="text" placeholder="Job Title" ng-model="vm.newEmployee.job_title"></input>
             <label>Annual Salary</label>
             <input type="number" placeholder="Annual Salary" ng-model="vm.newEmployee.salary"></input>
-            <button id="submit" ng-click="vm.postNewEmployee()">Submit</button>
+            <input type="submit" value="Submit">
         </form>
-    </div>
+    </div class='container'>
     <h3> Employee List</h3>
     <table>
-        <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Title</th>
-            <th>Annual Salary</th>
-            <th>Active</th>
+        <thead class='row'>
+            <th class="col-md-2">First Name</th>
+            <th class="col-md-2">Last Name</th>
+            <th class="col-md-2">Title</th>
+            <th class="col-md-2">Annual Salary</th>
+            <th class="col-md-2">Active</th>
+            <th class="col-md-2">Update</th>
         </thead>
         <tbody>
             <tr ng-repeat="employee in vm.employees">
@@ -38,10 +40,12 @@
                 <td>{{employee.last_name}}</td>
                 <td>{{employee.job_title}}</td>
                 <td>{{employee.salary}}</td>
+                <td>{{employee.active}}</td>
+                <td><button type="text">Update</button></td>
             </tr>
         </tbody>
     </table>
-    <h3> Monthly Salary Expenditures:</h3>
+    <h3> Monthly Salary Expenditures:{{vm.monthlyCost}}</h3>
 </body>
 
 </html>
